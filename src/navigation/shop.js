@@ -15,8 +15,8 @@ const ShopNavigator = () => {
     return(
         <Stack.Navigator initialRouteName="Categories">
             <Stack.Screen name="Categories" component={Categories}/>
-            <Stack.Screen name="Product" component={Product}/>
-            <Stack.Screen name="ProductList" component={ProductList}/>
+            <Stack.Screen name="Product" component={Product} />
+            <Stack.Screen name="ProductList" component={ProductList} options={({route}) => ({title: route.params.name})}/>
         </Stack.Navigator>
     )
 

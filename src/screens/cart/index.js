@@ -1,10 +1,7 @@
-import { StyleSheet, Text, View, Image, Button} from 'react-native';
+import { StyleSheet, Text, View, Image} from 'react-native';
 
-export default function ProductList({navigation, route}){
+export default function Cart(){
 
-
-  const {categoryID} = route.params
-    
     const styles = StyleSheet.create({
         container: {
           flex: 1,
@@ -15,10 +12,9 @@ export default function ProductList({navigation, route}){
       });
 
 
-
     return(
         <View style={styles.container}>
-            <Button title='View the product' onPress={() => {navigation.navigate("Product")}}/>
+            <Text>Cart</Text>
         </View>
     )
 }
