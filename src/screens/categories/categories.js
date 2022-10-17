@@ -1,15 +1,17 @@
 import { StyleSheet, Text, View, Image, Button, ScrollView, FlatList, SafeAreaView} from 'react-native';
 import GridItem from '../../components/gridItem/GridItem';
 import { useSelector, useDispatch  } from 'react-redux';
-import { selectedCategory } from '../../store/actions/category.action';
+import { selectedCategory } from '../../store/reducers/categorySlice';
 
 
 export default function Categories({navigation}){
 
   const categories = useSelector((state) => state.category.categories)
+  
   const dispatch = useDispatch();
+
   const onSelected = (item) => {
-    dispatch(selectedCategory(item.id))
+    dispatch(selectedCategory({categoryId: item.id}))
     navigation.navigate("ProductList", {name: item.title})
   }
 

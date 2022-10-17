@@ -1,12 +1,10 @@
-import { createStore, combineReducers } from "redux";
-import {productsReducer, categoryReducer} from '../store/reducers'
+import {productsSlice, categorySlice} from '../store/reducers'
+import { configureStore } from "@reduxjs/toolkit";
 
 
-const rootReducer = combineReducers({
-    products: productsReducer,
-    category: categoryReducer
-});
-
-export default createStore(rootReducer)
-
-
+export default configureStore({
+    reducer: {
+        products: productsSlice,
+        category: categorySlice
+    }
+})

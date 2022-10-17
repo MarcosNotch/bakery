@@ -1,17 +1,14 @@
-import { StyleSheet, Text, View, Image, Button, FlatList} from 'react-native';
+import { StyleSheet,Text, View, Image,FlatList} from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { products } from '../../constants/data/products';
-import { Product } from '../product/product'
-import { useEffect, useState } from 'react';
-import { filteredProduct } from '../../store/actions/products.action';
-
+import Product from '../product/product';
+import { useEffect } from 'react';
+import { filteredProducts } from '../../store/reducers/productsSlice';
 
 export default function ProductList({navigation}){
 
   const selectedCategory = useSelector((state => state.category.selected))
 
-  const productsFiltered = useSelector((state) => state.products.filteredProduct )
-
+  const productsFiltered = useSelector(state => state.products.filteredProducts)
 
     const dispatch = useDispatch()
     const styles = StyleSheet.create({
@@ -24,7 +21,7 @@ export default function ProductList({navigation}){
       });
 
       useEffect(() => {
-        dispatch(filteredProduct(selectedCategory.id))
+        dispatch(filteredProducts({categoryId: selectedCategory.id}))
       }, [])
 
       const onSelected = (item) => {
@@ -32,8 +29,9 @@ export default function ProductList({navigation}){
       }
 
       const renderItem = (item) => {
-        <Product item={item} onSelected={onSelected}/>
+        return( <Product item={item} onSelected={onSelected}/>)
       }
+
 
     return(
       <FlatList 
@@ -42,4 +40,6 @@ export default function ProductList({navigation}){
       keyExtractor={item => item.id.toString()}
       />
     )
+
+
 }

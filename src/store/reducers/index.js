@@ -1,2 +1,2 @@
-export { default as productsReducer} from './products.reducer';
-export {default as categoryReducer} from './category.reducer'
+export { default as productsSlice} from './productsSlice';
+export {default as categorySlice} from './categorySlice'

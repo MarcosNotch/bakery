@@ -2,7 +2,6 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ShopNavigator from "./shop";
 import CartNavigator from "./cartNavigator";
-import { FontAwesome5 } from '@expo/vector-icons'; 
 import { Ionicons } from '@expo/vector-icons';
 
 const BottomTab = createBottomTabNavigator();
@@ -15,8 +14,6 @@ const Tabs = () => {
             <BottomTab.Screen name="CartTab" component={CartNavigator} options={{tabBarIcon: ({focused}) => (<Ionicons name={focused ? "cart": "cart-outline" } size={24} color="black" />)}}/>
         </BottomTab.Navigator>
     )
-
-
 
 }
 

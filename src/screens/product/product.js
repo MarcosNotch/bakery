@@ -8,17 +8,12 @@ export default function Product(){
           backgroundColor: '#fff',
           alignItems: 'center',
           justifyContent: 'center',
-        },
+        }
       });
-
-
 
     return(
         <View style={styles.container}>
             <Text>Soy un producto</Text>
         </View>
     )
-
-
-
 }
