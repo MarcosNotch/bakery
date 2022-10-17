@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image} from 'react-native';
 
-export default function Product(){
+export default function Product({item}){
 
     const styles = StyleSheet.create({
         container: {
@@ -8,12 +8,13 @@ export default function Product(){
           backgroundColor: '#fff',
           alignItems: 'center',
           justifyContent: 'center',
+          margin: 20
         }
       });
 
     return(
         <View style={styles.container}>
-            <Text>Soy un producto</Text>
+            <Text>{item.item.title}</Text>
         </View>
     )
 }
